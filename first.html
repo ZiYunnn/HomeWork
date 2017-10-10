@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹窗</title>
+	<style>
+		#btn{
+			font-size: 12px;
+			text-decoration: none;
+			color: white;
+			padding: 14px 24px;
+			background-color: rgb(249,126,81);
+		}
+		.modal{
+			display: none;
+			position: fixed;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			overflow: auto;
+			background-color: rgba(0,0,0,0.5);
+		}
+		.modal-content{
+			background-color: #f4f4f4;
+			margin: 20% auto;
+			width: 80%;
+			animation-name: modalopen;
+			animation-duration: 1s;
+		}
+		.modal-header{
+			background-color: coral;
+			padding:15px;
+			color: #fff;
+		}
+		.closeBtn{
+			color: #fff;
+			float: right;
+			font-size: 30px;
+			cursor: pointer;
+		}
+		.modal-body{
+			padding: 10px 20px;
+		}
+		.modal-footer{
+			background-color: coral;
+			padding: 10px;
+			color: #fff;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<a href="#" id="btn">弹弹弹</a>
+	<!-- 弹框部分 -->
+	<div id="simpleModal" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="closeBtn">×</span>
+				<h2>弹窗头部</h2>
+			</div>
+			<div class="modal-body">
+				<p>这是一个弹窗效果</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ullam, blanditiis, quos corrupti voluptate minus vero alias, atque velit et aspernatur, ratione distinctio. Corporis, ex perferendis. Nisi, doloribus. Quis, harum.</p>
+			</div>
+			<div class="modal-footer">
+				<h3>弹窗底部</h3>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var btn = document.querySelector("#btn");
+	var closeBtn = document.querySelector(".closeBtn");
+	var modal = document.querySelector(".modal");
+	var modalContent = document.querySelector(".modal-content");
+	btn.onclick = function(){
+		modal.style.display = 'block';
+	}
+	closeBtn.onclick = function(ev){
+		var e = ev || window.event;
+		e.cancelBubble = true;
+		modal.style.display = 'none';
+	}
+	modalContent.onclick = function(ev){
+		var e = ev || window.event;
+		e.cancelBubble = true;
+	}
+	modal.onclick = function(){
+		this.style.display = 'none';
+	}
+</script>
+</html>
